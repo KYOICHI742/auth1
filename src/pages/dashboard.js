@@ -28,7 +28,7 @@ export default function Dashboard() {
     const { data, error } = await supabase
       .from('words')
       .select('*')
-      .eq('user_id', userId); // ログインしているユーザーのIDでフィルタリング
+      .eq('user_id', userId);
 
     if (error) {
       setErrorMessage(error.message);
@@ -51,7 +51,7 @@ export default function Dashboard() {
     if (error) {
       setErrorMessage(error.message);
     } else {
-      setWordList([...wordList, ...data]); // 新しい単語をリストに追加
+      setWordList([...wordList, ...data]);
       setNewWord('');
       setNewMeaning('');
     }
@@ -64,7 +64,7 @@ export default function Dashboard() {
     if (error) {
       setErrorMessage(error.message);
     } else {
-      setWordList(wordList.filter((word) => word.id !== id)); // 削除後、リストを更新
+      setWordList(wordList.filter((word) => word.id !== id));
     }
   };
 
